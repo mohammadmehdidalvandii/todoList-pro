@@ -1,0 +1,51 @@
+/* <<<< FONT  >>>> */
+@font-face {
+    font-family: danaBlack;
+    src: url('../../public/font/Dana-Black.woff')format(woff);
+}
+@font-face {
+    font-family: danaBold;
+    src: url('../../public/font/Dana-Bold.woff')format(woff);
+}
+@font-face {
+    font-family: danaMedium;
+    src: url('../../public/font/Dana-Medium.woff')format(woff);
+}
+/* root  */
+:root{
+    --dana-black: danaBlack;
+    --dana-bold : danaBold;
+    --dana-medium : danaMedium;
+
+    --bg-Light: #f3f4f6;
+    --bg-dark: #111828;
+    --white-color: #ffffff;
+    --text-100 : #424753;
+    --text-200: #a3a8b2;
+    --text-300: #feffff;
+    --text-400: #fefeff;
+    --primary-color:#38a364;
+    --secondary-color:#f49e0b;
+}
+
+/* body */
+body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--dana-medium);
+    font-size: 1rem;
+    background-color: var(--bg-Light);
+}
+
+/* dark */
+.dark{
+    background-color: var(--bg-dark)
+}
+
+/* container */
+.container{
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 1rem;
+}
