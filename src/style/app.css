@@ -3,11 +3,11 @@
     display: block;
     background-color: var(--white-color);
     padding: 1rem;
-    box-shadow: 0 0 8px 5px var(--text-200);
+    box-shadow: 0  8px 5px var(--text-200);
 }
 .dark .nav{
     background-color: #242a38;
-    box-shadow: 0 0 8px 5px #2f343a;
+    box-shadow: 0  4px 4px #2f343a;
 }
 .nav .nav_wrapper{
     display: flex;
@@ -45,8 +45,37 @@
     color: var(--bg-dark);
 }
 /* (((( nav )))) */
+/* (((( TopBar )))) */
+.topBar{
+    display: block;
+}
+.topBar_wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: var(--white-color);
+    padding: 1rem;
+    border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    box-shadow: 0  8px 5px var(--text-200);
+}
+.dark .topBar_wrapper{
+    background-color: #242a38;
+    box-shadow: 0  4px 4px #2f343a;
+}
+.topBar_btns{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.topBar_btns .download{
+    width: 180px;
+}
+/* (((( TopBar )))) */
 /* (((()))) */
 /* (((()))) */
 /* (((()))) */
-/* (((()))) */
-/* (((()))) */
+
+
