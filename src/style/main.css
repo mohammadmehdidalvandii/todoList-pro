@@ -19,13 +19,17 @@
 
     --bg-Light: #f3f4f6;
     --bg-dark: #111828;
+    --bg-dark-100: #242a38;
     --white-color: #ffffff;
     --text-100 : #424753;
     --text-200: #a3a8b2;
     --text-300: #feffff;
     --text-400: #fefeff;
     --primary-color:#38a364;
+    --primary-color-100:##009b4c;
     --secondary-color:#f49e0b;
+    --success-color:##018be4;
+    --success-color-100:##004c7d;
 }
 
 /* body */
