@@ -26,10 +26,10 @@
     --text-300: #feffff;
     --text-400: #fefeff;
     --primary-color:#38a364;
-    --primary-color-100:##009b4c;
+    --primary-color-100:#009b4c;
     --secondary-color:#f49e0b;
-    --success-color:##018be4;
-    --success-color-100:##004c7d;
+    --success-color:#018be4;
+    --success-color-100:#004c7d;
 }
 
 /* body */
@@ -57,7 +57,39 @@ body{
     margin-inline: auto;
     padding-inline: 1rem;
 }
-
+/* button style */
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 130px;
+    height: 2rem;
+    color: var(--white-color);
+    border-radius: 0.5rem;
+    outline: none;
+    border: none;
+    font-family: var(--dana-bold);
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.4s linear;
+}
+.btn:hover{
+    transform: translateY(-5px);
+}
+.btn.primary{
+    background-color: var(--primary-color);
+}
+.btn.primary:hover{
+    background-color: var(--primary-color-100);
+}
+.btn.success{
+    background-color: var(--success-color);
+}
+.btn.success:hover{
+    background-color: var(--success-color-100);
+}
 
 /* Responsive  Utilities*/
 
