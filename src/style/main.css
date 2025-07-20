@@ -28,8 +28,11 @@
     --primary-color:#38a364;
     --primary-color-100:#009b4c;
     --secondary-color:#f49e0b;
+    --secondary-color-100:#f49e4c;
     --success-color:#018be4;
     --success-color-100:#004c7d;
+    --danger-color: #fc0000;
+    --danger-colo-100: #e52b2b;
 }
 
 /* body */
@@ -89,6 +92,18 @@ body{
 }
 .btn.success:hover{
     background-color: var(--success-color-100);
+}
+.btn.secondary{
+    background-color: var(--secondary-color);
+}
+.btn.secondary:hover{
+    background-color: var(--secondary-color-100);
+}
+.btn.cancel{
+    background-color: var(--danger-color) ;
+}
+.btn.cancel:hover{
+    background-color: var(--danger-colo-100);
 }
 
 /* Responsive  Utilities*/

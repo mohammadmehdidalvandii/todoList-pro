@@ -74,6 +74,75 @@
     width: 180px;
 }
 /* (((( TopBar )))) */
+/* (((( Todos )))) */
+.todos{
+    display: block;
+    margin-block: 5rem  ;
+}
+.todos .container_todos{
+    max-width: 1500px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+.todos .todos_items{
+    display: grid;
+    grid-template-columns: repeat(auto-fit , minmax(250px , 1fr));
+    gap: 1rem;
+}
+.todos .todoCart{
+    display: block;
+    max-width: 250px;
+    background-color: var(--white-color);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    position: relative;
+}
+.dark .todoCart{
+    background-color: var(--bg-dark-100);
+    color: var(--white-color);
+    position: relative;
+}
+.todoCart .todoCart_title{
+    display: block;
+    font-family: var(--dana-black);
+    font-size: 1rem;
+}
+.todoCart .todoCart_buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    background-color: var(--white-color);
+    border-radius: 0.5rem;
+    transition: all 0.3s ease-out;
+}
+.todoCart:hover .todoCart_buttons{
+    width: 100%;
+    visibility: visible;
+}
+.dark .todoCart_buttons{
+    background-color: var(--bg-dark-100);
+}
+ .todoCart_buttons .todoCart_btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    cursor: pointer;
+ }
+/* (((( Todos )))) */
 /* (((()))) */
 /* (((()))) */
 /* (((()))) */
