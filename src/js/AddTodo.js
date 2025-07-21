@@ -4,7 +4,21 @@ const cancelBtn = document.querySelector('#cancel_model_addTodo')
 const todoTitle  = document.querySelector("#title_todo")
 const todoSubject  = document.querySelector("#subject_todo")
 const saveTodo = document.querySelector('#addTodo_save');
-const errorElem = document.querySelector("#error");
+const ratingElem = document.querySelector("#rating-container");
+
+let rate = null
+
+
+function handlerRating (e){
+    if(e.target.tagName === "I"){
+        const rating  = parseInt(e.target.getAttribute('data-value'));
+        const stars = this.querySelectorAll('i');
+        stars.forEach((star , index)=>{
+            star.classList.toggle('active', index < rating);
+        });
+        rate = rating
+    }
+}
 
 function handlerSaveTodo (){
     const titleValue = todoTitle.value;
@@ -21,7 +35,8 @@ function handlerSaveTodo (){
         id:crypto.randomUUID(),
         title: titleValue,
         subject: subjectValue,
-        date:Date.now()
+        date:Date.now(),
+        rating:rate,
     }
 
     let todos = JSON.parse(localStorage.getItem("todos"))|| [];
@@ -30,6 +45,7 @@ function handlerSaveTodo (){
     localStorage.setItem("todos",JSON.stringify(todos));
     todoTitle.value ="";
     todoSubject.value = "";
+    rate = null;
     alert("Todo Add Successfully ✅");
     todoModel.classList.remove('active')
 }
@@ -49,9 +65,11 @@ function handlerExitModel (){
 export function  addTodos (){
     handlerAddTodo;
     handlerSaveTodo;
+    handlerRating
 }   
 
 
 addTodo.addEventListener("click" ,handlerAddTodo)
 cancelBtn.addEventListener("click" , handlerExitModel)
 saveTodo.addEventListener('click', handlerSaveTodo)
+ratingElem.addEventListener('click' , handlerRating)

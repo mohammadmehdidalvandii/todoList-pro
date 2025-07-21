@@ -155,12 +155,15 @@
     gap: 0.4rem;
     font-size: 1.1rem;
 }
-.model .rating span{
+.model .rating i{
     cursor: pointer;
     transition: all 0.4s linear;
     &:hover{
         color: var(--secondary-color);
     }
+}
+.model .rating i.active{
+    color: var(--secondary-color);
 }
 /* ((((  Mode Todo )))) */
 /* (((()))) */
