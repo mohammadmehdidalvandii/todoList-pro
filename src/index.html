@@ -26,7 +26,7 @@
         <div class="container">
             <div class="topBar_wrapper">
                 <div class="topBar_btns">
-                    <button class="btn primary">
+                    <button class="btn primary" id="addTodo">
                         <span class="Icon"><i class="fa-solid fa-plus"></i></span>
                         <span class="text">Add Todo</span>
                     </button>
@@ -62,12 +62,39 @@
 
 
     <!-- <<<<< All models  >>>> -->
-     <!-- active model -->
-    <div class="bg_model ">
+   <!-- **** Add Todo model **** -->
+     <div class="bg_model " id="todoModel">
         <div class="model">
-            this is model
+            <div class="model_addTodo">
+                <h6 class="title">Add Todo</h6>
+                <form action="#" class="form">
+                    <div class="form_group">
+                        <label for="" class="form_label">Title</label>
+                        <input type="text" class="form_input">
+                    </div>
+                    <div class="form_group">
+                        <label for="" class="form_label">Subject</label>
+                        <textarea name="" class="form_text" ></textarea>
+                    </div>
+                    <div class="form_group">
+                        <label for="" class="form_label">Level</label>
+                        <div class="rating">
+                            <span><i class="fa-solid fa-star"></i></span>
+                            <span><i class="fa-solid fa-star"></i></span>
+                            <span><i class="fa-solid fa-star"></i></span>
+                            <span><i class="fa-solid fa-star"></i></span>
+                            <span><i class="fa-solid fa-star"></i></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="model_buttons">
+                <button class="btn success" id="addTodo_save">Save</button>
+                <button class="btn cancel " id="cancel_model_addTodo">Cancel</button>
+            </div>
         </div>
     </div>
+   <!-- **** Add Todo model **** -->
     <!-- <<<<< All models  >>>> -->
 
     <!-- Js -->

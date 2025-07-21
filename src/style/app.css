@@ -143,6 +143,22 @@
     cursor: pointer;
  }
 /* (((( Todos )))) */
+/* ((((  Mode Todo )))) */
+.model .rating{
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 1.1rem;
+}
+.model .rating span{
+    cursor: pointer;
+    transition: all 0.4s linear;
+    &:hover{
+        color: var(--secondary-color);
+    }
+}
+/* ((((  Mode Todo )))) */
+/* (((()))) */
 /* (((()))) */
 /* (((()))) */
 /* (((()))) */
