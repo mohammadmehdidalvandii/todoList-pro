@@ -119,14 +119,15 @@
     position: absolute;
     top: 0;
     left: 0;
-    visibility: hidden;
+    /* visibility: hidden; */
+    opacity: 0;
     background-color: var(--white-color);
     border-radius: 0.5rem;
     transition: all 0.3s ease-out;
 }
 .todoCart:hover .todoCart_buttons{
     width: 100%;
-    visibility: visible;
+    opacity: 1;
 }
 .dark .todoCart_buttons{
     background-color: var(--bg-dark-100);
