@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="/src/style/app.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!-- library jspdf -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/3.0.1/jspdf.umd.min.js" integrity="sha512-ad3j5/L4h648YM/KObaUfjCsZRBP9sAOmpjaT2BDx6u9aBrKFp7SbeHykruy83rxfmG42+5QqeL/ngcojglbJw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
     <title>TodoList</title>
 </head>
 <body>
@@ -30,7 +33,7 @@
                         <span class="Icon"><i class="fa-solid fa-plus"></i></span>
                         <span class="text">Add Todo</span>
                     </button>
-                    <button class="btn success download">
+                    <button class="btn success download" id="download_todo">
                         <span class="icon"><i class="fa-solid fa-download"></i></span>
                         <span class="text">Download Todo</span>
                     </button>
@@ -95,9 +98,29 @@
         </div>
     </div>
    <!-- **** Add Todo model **** -->
+
+   <!-- **** Download all todos **** -->
+        <div class="bg_model" id="downloadTodos">
+            <div class="model">
+                <div class="model_download">
+                        <h5 class="title">Download All Todos</h5>
+                        <select class='model_download_select' id="downloadFormat">
+                            <option value="0">Choose Format</option>
+                            <option value="JSON">JSON</option>
+                            <option value="PDF">PDF</option>
+                            <option value="CSV">CSV</option>
+                        </select>
+                         <div class="model_buttons">
+                             <button class="btn success" id="modelDownload_todos">Download</button>
+                             <button class="btn cancel" id="cancel_model_download">Cancel</button>
+                     </div>
+                </div>
+            </div>
+        </div>
+   <!-- **** Download all todos **** -->
     <!-- <<<<< All models  >>>> -->
 
-    <!-- Js -->
+    <!-- Js -->   
      <script src="/src/js/app.js" type="module"></script>
 </body>
 </html>

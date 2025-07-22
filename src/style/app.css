@@ -167,7 +167,31 @@
     color: var(--secondary-color);
 }
 /* ((((  Mode Todo )))) */
-/* (((()))) */
+/* (((( Model Download )))) */
+.model_download{
+    display: block;
+    width: 100%;
+}
+.model_download_select{
+    display: block;
+    width: 100%;
+    height: 3rem;
+    margin-bottom: 1rem;
+    border: none;
+    outline: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-family: var(--dana-bold);
+    font-size: 1.1rem;
+}
+.model_download_select:focus{
+     border:2px solid var(--success-color-100);
+}
+.model_download .btn{
+    text-decoration: none;
+}
+
+/* (((( Model Download )))) */
 /* (((()))) */
 /* (((()))) */
 /* (((()))) */
