@@ -28,7 +28,7 @@ function handlerDownloadTodos (e){
             downloadPDF()
             break;
         case 'CSV':
-            
+            downloadCSV()
             break;
     }
 
@@ -54,7 +54,20 @@ function downloadPDF(){
 
 }
 function downloadCSV(){
-
+       const header = "id,title,subject,date,rating,completed";
+    const rows = todosData.map(todo=> `${todo.id},${todo.title},${todo.date},${todo.rating},${todo.completed}`);
+    const csv = header + rows;
+    const blob = new Blob([csv],{type:'text/csv;charset=utf-8;'});
+    const url = URL.createObjectURL(blob);
+     const aElem = document.createElement('a');
+    aElem.href = url;
+    aElem.download = 'todos.csv';
+    document.body.appendChild(aElem);
+    aElem.click();
+    setTimeout(() => {
+        document.body.removeChild(aElem);
+        URL.revokeObjectURL(url);
+    }, 100); 
 }
 
 function handlerExitModel (){
