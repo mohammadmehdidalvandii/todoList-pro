@@ -46,8 +46,8 @@ function handlerSaveTodo (){
     localStorage.setItem("todos",JSON.stringify(todos));
     todoTitle.value ="";
     todoSubject.value = "";
-    rate = null;
     alert("Todo Add Successfully ✅");
+    window.location.reload()
     todoModel.classList.remove('active')
 }
 
