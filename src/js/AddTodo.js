@@ -37,6 +37,7 @@ function handlerSaveTodo (){
         subject: subjectValue,
         date:Date.now(),
         rating:rate,
+        complete:false,
     }
 
     let todos = JSON.parse(localStorage.getItem("todos"))|| [];
