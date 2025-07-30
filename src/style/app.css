@@ -87,13 +87,15 @@
     padding-left: 1rem;
 }
 .todos .todos_items{
-    display: grid;
-    grid-template-columns: repeat(auto-fit , minmax(250px , 1fr));
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
     gap: 1rem;
+    width: 100%;
 }
 .todos .todoCart{
     display: block;
-    max-width: 250px;
+    width: 200px;
     background-color: var(--white-color);
     padding: 1rem;
     border-radius: 0.5rem;

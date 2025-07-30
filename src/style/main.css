@@ -224,6 +224,9 @@ body{
     .model{
         min-width: 500px;
     }
+     .todoCart{
+        width: 100% !important;
+    }
 }
 @media (max-width : 576px) {
     .topBar_wrapper{
@@ -242,9 +245,11 @@ body{
     .model{
         min-width: 350px;
     }
+    
 }
 @media (max-width : 390px){
      .model{
         min-width:280px ;
     }
+   
 }
