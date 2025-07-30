@@ -197,6 +197,42 @@
 }
 
 /* (((( Model Download )))) */
+.model_details{
+    display: block;
+    padding: 1rem;
+}
+.model_details_items{
+display: block;
+list-style: none;
+width: 100%;
+}
+.model_details_items .item{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    text-align: center;
+    gap: 1rem;
+}
+.model_details_items .title{
+    display: block;
+    font-family: var(--dana-bold);
+    font-size: 1.2rem;
+    color: var(--success-color-100);
+}
+.dark .model_details_items .title{
+    display: block;
+    font-family: var(--dana-bold);
+    font-size: 1.2rem;
+    color: var(--secondary-color-100);
+}
+.model_details_items .text{
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: var(--white);
+}
+/* (((( Model details )))) */
+/* (((( Model details )))) */
 /* (((()))) */
 /* (((()))) */
 /* (((()))) */

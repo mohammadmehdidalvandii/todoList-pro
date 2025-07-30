@@ -1,4 +1,6 @@
 const wrapperTodos = document.querySelector("#todos_container");
+const showDetailsModel = document.querySelector('#showDetails');
+const btnDetails = document.querySelector('#btn_details_model');
 
 let todos = JSON.parse(localStorage.getItem('todos')) || []
 
@@ -24,10 +26,47 @@ function handlerButtonClick(event){
         localStorage.setItem('todos', JSON.stringify(todos))
         showTodos();
         }
+    };
+    if(button.classList.contains("btn_details")){
+        if(!showDetailsModel.classList.contains('active')){
+            showDetailsModel.classList.add('active');
+
+            const findTodo = todos.find((todo)=>todo.id == todoID);
+            const date = new Date(findTodo.date);
+            if(findTodo){
+                const todoContainer = document.querySelector('#todo_details');
+                todoContainer.innerHTML = '';
+                todoContainer.insertAdjacentHTML('beforeend',`
+                        <ul class="model_details_items" >
+                    <li class="item">
+                        <span class="title">Title :</span>
+                        <span class="text">${findTodo.title}</span>
+                    </li>
+                    <li class="item">
+                        <span class="title">Subject :</span>
+                        <span class="text">${findTodo.subject}</span>
+                    </li>
+                    <li class="item">
+                        <span class="title">degree of difficulty :</span>
+                        <span class="text">${findTodo.rating < 2 ? "Low difficulty level":"High level of difficulty"} - level = ${findTodo.rating}</span>
+                    </li>
+                    <li class="item">
+                        <span class="title">Date  :</span>
+                        <span class="text">${date}</span>
+                    </li>
+                </ul>
+                    `)
+            }
+        }
     }
     
 } 
 
+function handlerExitModelDetails(){
+    if(showDetailsModel.classList.contains('active')){
+        showDetailsModel.classList.remove('active')
+    }
+}
 
  const showTodos =  ()=>{
     wrapperTodos.innerHTML =''
@@ -39,7 +78,7 @@ function handlerButtonClick(event){
                            <button class="todoCart_btn btn primary btn_completed" data-id="${todo.id}"><i class="fa-solid fa-check"></i></button>
                            <button class="todoCart_btn btn cancel btn_delete" data-id="${todo.id}"><i class="fa-solid fa-trash"></i></button>
                            <button class="todoCart_btn btn success"><i class="fas fa-edit"></i></button>
-                           <button class="todoCart_btn btn secondary"><i class="fa-solid fa-eye"></i></button>
+                           <button class="todoCart_btn btn secondary btn_details" data-id="${todo.id}"><i class="fa-solid fa-eye"></i></button>
                        </div>
                    </div>
                `);
@@ -47,6 +86,7 @@ function handlerButtonClick(event){
 
  }
 wrapperTodos.addEventListener("click", handlerButtonClick)
+btnDetails.addEventListener('click', handlerExitModelDetails)
 
 export function operationTodos (){
     showTodos()
