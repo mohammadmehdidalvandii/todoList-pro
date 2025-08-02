@@ -3,6 +3,8 @@ const showDetailsModel = document.querySelector('#showDetails');
 const btnDetails = document.querySelector('#btn_details_model');
 const btnEdit = document.querySelector('#showEditModel');
 const exitModelEdit = document.querySelector("#cancel_model_edit");
+const showDeleteModel = document.querySelector('#deleteModel');
+const btnExitDeleteModel =document.querySelector("#cancel_model_delete");
 
 let todos = JSON.parse(localStorage.getItem('todos')) || []
 
@@ -23,11 +25,30 @@ function handlerButtonClick(event){
         }
     };
     if(button.classList.contains('btn_delete')){
-        if(todoID){
-        todos = todos.filter((todo)=> todo.id !== todoID);
-        localStorage.setItem('todos', JSON.stringify(todos))
-        showTodos();
+        if(!showDeleteModel.classList.contains('active')){
+            showDeleteModel.classList.add('active')
         }
+        if(todoID){
+            const findTodo = todos.find((todo)=>todo.id == todoID);
+            const todoModelDelete = document.querySelector(".model_deleteTodo")
+            todoModelDelete.insertAdjacentHTML('beforebegin',`
+                <p class="modelDelete_text">Are you sure you want to delete this <span class='modelDelete_text_span'>${findTodo.title}</span>?</p>
+                `)    
+            }
+            const deleteBtn = document.querySelector('#model_delete_todos');
+        
+            deleteBtn.onclick = function(){
+                todos = todos.filter((todo)=>todo.id !== todoID);
+                localStorage.setItem('todos',JSON.stringify(todos))
+                alert('todo is deleted successfully ✅')
+                window.location.reload();
+            }
+
+        // if(todoID){
+        // todos = todos.filter((todo)=> todo.id !== todoID);
+        // localStorage.setItem('todos', JSON.stringify(todos))
+        // showTodos();
+        // }
     };
     if(button.classList.contains("btn_details")){
         if(!showDetailsModel.classList.contains('active')){
@@ -113,6 +134,12 @@ function handlerExitEditModel (){
         btnEdit.classList.remove('active')
     }
 }
+
+function handlerExitDeleteModel (){
+    if(showDeleteModel.classList.contains('active')){
+        showDeleteModel.classList.remove('active')
+    }
+}
  const showTodos =  ()=>{
     wrapperTodos.innerHTML =''
     todos.forEach((todo) => {
@@ -133,7 +160,7 @@ function handlerExitEditModel (){
 wrapperTodos.addEventListener("click", handlerButtonClick)
 btnDetails.addEventListener('click', handlerExitModelDetails)
 exitModelEdit.addEventListener('click',handlerExitEditModel)
-
+btnExitDeleteModel.addEventListener('click', handlerExitDeleteModel )
 export function operationTodos (){
     showTodos()
 }
