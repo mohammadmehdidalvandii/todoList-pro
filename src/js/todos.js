@@ -1,6 +1,8 @@
 const wrapperTodos = document.querySelector("#todos_container");
 const showDetailsModel = document.querySelector('#showDetails');
 const btnDetails = document.querySelector('#btn_details_model');
+const btnEdit = document.querySelector('#showEditModel');
+const exitModelEdit = document.querySelector("#cancel_model_edit");
 
 let todos = JSON.parse(localStorage.getItem('todos')) || []
 
@@ -59,6 +61,47 @@ function handlerButtonClick(event){
             }
         }
     }
+    if(button.classList.contains('btn_edit')){
+        if(!btnEdit.classList.contains('active')){
+            btnEdit.classList.add('active');
+        };
+        const findTodo = todos.find((todo)=> todo.id == todoID);
+        if(findTodo){
+            console.log("findTodo =>", findTodo);
+            const titleTodo = document.querySelector("#title_todo_edit"); 
+            const subjectTodo  = document.querySelector("#subject_todo_edit");
+            titleTodo.value = findTodo.title;
+            subjectTodo.value = findTodo.subject;
+
+            let ratingSelect = findTodo.rating;
+
+             const stars = document.querySelectorAll('.icon-star');
+             stars.forEach((star , index)=>{
+                if(index < ratingSelect){
+                    star.classList.add('active')
+                }
+                star.onclick = function() {
+                    stars.forEach((star)=>{star.classList.remove("active")})
+                    ratingSelect = star.getAttribute('data-value')
+                    for (let i = 0; i < ratingSelect; i++) {
+                    stars[i].classList.add('active'); 
+                }
+            };
+             })
+           
+            
+            const saveEdit = document.querySelector("#model_Edit_todos");
+            saveEdit.onclick = function(){
+                findTodo.title = titleTodo.value;
+                findTodo.subject = subjectTodo.value;
+                findTodo.rating = ratingSelect;
+                localStorage.setItem('todos',JSON.stringify(todos));
+                alert("update todos is successfully ✅");
+                window.location.reload();
+            }
+
+        }
+    }   
     
 } 
 
@@ -67,7 +110,11 @@ function handlerExitModelDetails(){
         showDetailsModel.classList.remove('active')
     }
 }
-
+function handlerExitEditModel (){
+    if(btnEdit.classList.contains('active')){
+        btnEdit.classList.remove('active')
+    }
+}
  const showTodos =  ()=>{
     wrapperTodos.innerHTML =''
     todos.forEach((todo) => {
@@ -77,7 +124,7 @@ function handlerExitModelDetails(){
                        <div class="todoCart_buttons">
                            <button class="todoCart_btn btn primary btn_completed" data-id="${todo.id}"><i class="fa-solid fa-check"></i></button>
                            <button class="todoCart_btn btn cancel btn_delete" data-id="${todo.id}"><i class="fa-solid fa-trash"></i></button>
-                           <button class="todoCart_btn btn success"><i class="fas fa-edit"></i></button>
+                           <button class="todoCart_btn btn success btn_edit" data-id="${todo.id}"><i class="fas fa-edit"></i></button>
                            <button class="todoCart_btn btn secondary btn_details" data-id="${todo.id}"><i class="fa-solid fa-eye"></i></button>
                        </div>
                    </div>
@@ -87,6 +134,7 @@ function handlerExitModelDetails(){
  }
 wrapperTodos.addEventListener("click", handlerButtonClick)
 btnDetails.addEventListener('click', handlerExitModelDetails)
+exitModelEdit.addEventListener('click',handlerExitEditModel)
 
 export function operationTodos (){
     showTodos()
