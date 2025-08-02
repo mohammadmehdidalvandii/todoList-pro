@@ -67,7 +67,6 @@ function handlerButtonClick(event){
         };
         const findTodo = todos.find((todo)=> todo.id == todoID);
         if(findTodo){
-            console.log("findTodo =>", findTodo);
             const titleTodo = document.querySelector("#title_todo_edit"); 
             const subjectTodo  = document.querySelector("#subject_todo_edit");
             titleTodo.value = findTodo.title;
@@ -88,7 +87,6 @@ function handlerButtonClick(event){
                 }
             };
              })
-           
             
             const saveEdit = document.querySelector("#model_Edit_todos");
             saveEdit.onclick = function(){
